@@ -1,0 +1,13 @@
+<app-menu></app-menu>
+
+<mat-card class="mat-card" *ngFor="let group of groups">
+    <mat-card-content class="mat-card-content">
+        {{group.name}}
+        <mat-list *ngFor="let learner of group.learners">
+            <mat-list-item>
+                {{learner.firstname}}
+                {{learner.lastname}}
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

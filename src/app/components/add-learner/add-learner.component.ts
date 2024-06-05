@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { LearnerService } from '../../services/learner.service';
-import { Subscription } from 'rxjs';
 import { Learner } from '../../models/Learner';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -14,11 +13,10 @@ export class AddLearnerComponent {
   
   learner: Learner 
   learnerForm: NgForm
-  subscription: Subscription
 
   constructor(
     private learnerService: LearnerService,
-    private router: Router,
+    private router: Router
   ){
     this.learner = new Learner()
   }

@@ -1,0 +1,26 @@
+<app-menu></app-menu>
+
+<form 
+    class="form"
+    (ngSubmit)="onSubmit(numberOfGroups.value)"
+    #groupForm="ngForm"
+    >
+
+    <mat-form-field
+        class="mat-form-field"
+        >
+        <mat-label>Nombre de groupes</mat-label>
+        <input 
+            matInput
+            type="number"
+            id="numberOfGroups"
+            required
+            name="numberOfGroups"
+            (ngModel)="numberOfGroups"
+            #numberOfGroups="ngModel"
+            >
+    </mat-form-field>
+
+    <button mat-button class="mat-button" type="submit">Valider</button>
+
+</form>

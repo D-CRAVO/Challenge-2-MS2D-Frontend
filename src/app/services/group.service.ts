@@ -21,6 +21,6 @@ export class GroupService {
   }
 
   createGroups(numnerOfGroups: number){
-    this.httpClient.post(this.apiService.API_URL + this.ENDPOINT_CREATE_GROUPS, numnerOfGroups)
+    return this.httpClient.post(this.apiService.API_URL + this.ENDPOINT_CREATE_GROUPS, numnerOfGroups)
   }
 }

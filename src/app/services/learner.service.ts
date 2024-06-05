@@ -18,20 +18,23 @@ export class LearnerService {
   ) { }
 
   getLearners(){
-    return this.httpClient.get(this.apiService.API_URL + this.ENDPOINT_LEARNERS)
+    return this.httpClient.get(this.apiService.API_URL + this.ENDPOINT_LEARNERS).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, undefined))
+    )
   }
 
   deleteLearnerById(id: number){
-    this.httpClient.delete(this.apiService.API_URL + this.ENDPOINT_LEARNER + `/${id}`).pipe(
+    return this.httpClient.delete(this.apiService.API_URL + this.ENDPOINT_LEARNER + `/${id}`).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, undefined))
     )
   }
 
   addLearner(learner: Learner){
-    this.httpClient.post(this.apiService.API_URL + this.ENDPOINT_LEARNERS, learner).pipe(
+    return this.httpClient.post(this.apiService.API_URL + this.ENDPOINT_LEARNERS, learner).pipe(
       tap((response) => this.log(response)),
-      catchError((error) => this.handleError(error, undefined))
+      catchError((error) => this.handleError(error, undefined)),
     )
   }
 

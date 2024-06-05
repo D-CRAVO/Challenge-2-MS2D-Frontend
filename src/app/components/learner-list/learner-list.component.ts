@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LearnerService } from '../../services/learner.service';
-import { Router } from '@angular/router';
+import { Learner } from '../../models/Learner';
 
 @Component({
   selector: 'app-learner-list',
@@ -10,14 +10,17 @@ import { Router } from '@angular/router';
 })
 export class LearnerListComponent implements OnInit, OnDestroy{
   
-  learners: any
+  learners: Learner[]
   subscription: Subscription
 
   constructor(
-    private learnerService: LearnerService,
-    private router: Router
+    private learnerService: LearnerService
   ){
     this.subscription = new Subscription
+  }
+
+  deleteLearner(learner: Learner) : void {
+    this.learnerService.deleteLearnerById(learner.id).subscribe((result) => this.ngOnInit())
   }
 
   ngOnInit() : void {

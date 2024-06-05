@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { GroupService } from '../../services/group.service';
 import { RouterOutlet } from '@angular/router';
+import { Group } from '../../models/Group';
 
 @Component({
   selector: 'app-group-list',
@@ -24,6 +25,6 @@ export class GroupListComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(): void {
-      this.subscription.unsubscribe
+      this.subscription.unsubscribe()
   }
 }

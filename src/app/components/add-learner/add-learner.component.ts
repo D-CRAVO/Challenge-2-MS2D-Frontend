@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LearnerService } from '../../services/learner.service';
 import { Subscription } from 'rxjs';
 import { Learner } from '../../models/Learner';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-learner',
   templateUrl: './add-learner.component.html',
   styleUrl: './add-learner.component.css'
 })
-export class AddLearnerComponent implements OnInit{
+export class AddLearnerComponent {
   
   learner: Learner 
   learnerForm: NgForm
@@ -19,13 +19,8 @@ export class AddLearnerComponent implements OnInit{
   constructor(
     private learnerService: LearnerService,
     private router: Router,
-    private route: ActivatedRoute
   ){
     this.learner = new Learner()
-  }
-
-  ngOnInit(): void {
-      
   }
 
   addLearner(learner: Learner): void {
@@ -38,8 +33,6 @@ export class AddLearnerComponent implements OnInit{
 
 
   onSubmit(){
-    console.log('submit form')
     this.addLearner(this.learner)
   }
-
 }

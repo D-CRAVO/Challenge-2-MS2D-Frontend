@@ -1,21 +1,25 @@
-<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu">
-    <mat-icon>more_vert</mat-icon>
+<button mat-button [matMenuTriggerFor]="menu" aria-label="menu">
+  Menu
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>home</mat-icon>
+    <a href = "/welcome">Accueil</a>
   </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>add_box</mat-icon>
-      <a href="/add-learner">Enregistrer un apprenant</a>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>add_box</mat-icon>
-      <a href="/create-groups">Création des groupes</a>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>list</mat-icon>
-      <a href="/groups">Liste des groupes</a>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>list</mat-icon>
-      <a href="/learners">Liste des apprenants</a>
-    </button>
-  </mat-menu>
+  <button mat-menu-item>
+    <mat-icon>add_box</mat-icon>
+    <a href = "/add-learner">Enregistrer un apprenant</a>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>group_add</mat-icon>
+    <a href = "/create-groups">Création des groupes</a>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>list</mat-icon>
+    <a href = "/group-list">Liste des groupes</a>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>list</mat-icon>
+    <a href = "/learner-list">Liste des apprenants</a>
+  </button>
+</mat-menu>

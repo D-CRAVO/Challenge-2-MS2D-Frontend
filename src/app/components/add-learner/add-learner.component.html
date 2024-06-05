@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+
+<main>
+
+    <form 
+        class="form"
+        (ngSubmit)="onSubmit()"
+        #learnerForm="ngForm"
+        >
+        <mat-form-field 
+            appearance="fill"
+            class="mat-form-field"
+            >
+            <mat-label>Firstname</mat-label>
+            <input 
+                matInput
+                type="text" 
+                id="firstname"
+                required
+                pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+                name="firstname"
+                [(ngModel)]="learner.firstname"
+                #firstname="ngModel">
+        </mat-form-field>
+        
+        <mat-form-field class="mat-form-field">
+            <mat-label>Lastname</mat-label>
+            <input 
+                matInput 
+                type="text"
+                id="lastname"
+                pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+                name="lastname"
+                [(ngModel)]="learner.lastname"
+                #lastname="ngModel"
+                >
+        </mat-form-field>
+
+    <button mat-button class="validation-button" type="submit" color="green">Valider</button>
+
+    </form>
+    
+
+</main>
